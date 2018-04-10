@@ -1,0 +1,57 @@
+<p><a href="/">Dashboard</a>&emsp;<a href="Products">Products</a>&emsp;<a href="Orders">Orders</a>&emsp;<a href="Customers">Customers</a>&emsp;<a href="Settings">Settings</a></p>
+<form action="SearchP" method="post">
+
+    <label for="SearchP">Search Product:</label>
+    <input  name="SearchP" type="text"/>
+
+    <button type="submit">Search</button>
+</form>
+<div>
+    <div style="display: inline-block; vertical-align: top;">
+        <h2>Add a new product</h2>
+
+        <form action="AddP" method="post">
+
+            <label for="Name">Name:</label>
+            <br>
+            <input  name="Name" type="text"/>
+            <br>
+            <label for="Image">Image (url):</label>
+            <br>
+            <input  name="Image" type="text"/>
+            <br>
+            <label for="Description">Description:</label>
+            <br>
+            <textarea rows="4" cols="30" name="Description"></textarea>
+            <br>
+
+            <h4>Initial Quantity:</h4>
+            <label for="Initial Quantity"></label>
+                <select name="IQ">
+                    <option value="1">1</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                </select>
+                <br>
+                <br>
+
+            <button type="submit">Create</button>
+        </form>
+    </div>
+ 
+        
+            @{
+                foreach(var x in @ViewBag.Products)
+                {
+                    <div style="display: inline-block; vertical-align: top;">
+                    <p><img src="@x.Image" style="width: 200px; height: 150px;"></p>
+                    <p>@x.Name</p>
+                    <p>@x.Description</p>
+                    <p>(@x.Quantity left)</p>
+                    </div>
+                }
+            }
+
+</div>
+<p style="margin-left: 400px;"><a href="">show more</a></p>

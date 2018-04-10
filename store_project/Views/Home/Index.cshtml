@@ -1,0 +1,56 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<p><a href="/">Dashboard</a>&emsp;<a href="Products">Products</a>&emsp;<a href="Orders">Orders</a>&emsp;<a href="Customers">Customers</a>&emsp;<a href="Settings">Settings</a></p>
+
+<form action="Search" method="post">
+
+    <label for="Search">Search:</label>
+    <input  name="Search" type="text"/>
+    <button style="margin-left: 115px;" type="submit">Filter</button>
+</form>
+@{
+    
+    foreach(var p in ViewBag.Products){
+        <div style="display: inline-block; vertical-align: top;">
+            <p><img src="@p.Image" style="width: 200px; height: 150px;"></p>
+                    <p>@p.Name</p>
+                    <p>@p.Description</p>
+                    <p>(@p.Quantity left)</p>
+        </div>
+    }
+}
+<p style="margin-left: 400px;"><a href="ShowAllP">show more</a></p>
+<h2>Recent Orders</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Customer Name</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+@{
+    foreach( var t in @ViewBag.Order2)
+    {
+        <tr>
+            <td>@t.Customer.Name</td>
+            <td>@t.Product.Name</td>
+            <td>@t.Quantity</td>
+            <td>@t.createdat</td>
+        </tr>
+    }
+}
+    </tbody>
+</table>
+
+<p style="margin-left: 400px;"><a href="ShowAllO">show all orders</a></p>
+<h2>New Customers</h2>
+@{
+    foreach(var v in ViewBag.Customers){
+        
+        <p>@v.Name  @v.createdat</p>
+    }
+}
+<p style="margin-left: 400px;"><a href="ShowAllC">show all customers</a></p>

@@ -1,0 +1,46 @@
+@model restaurant_project.Models.User
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Write a new Review:</h1>
+
+<form asp-controller="Home" asp-action="AddReview" method="post">
+    <span asp-validation-for="Name"></span>
+    <br>
+    <label asp-for="Name"></label>
+    <input style="margin-left: 50px;" asp-for="Name"/>
+    <br>
+    <br>
+    <span asp-validation-for="RestaurantName"></span>
+    <br>
+    <label asp-for="RestaurantName"></label>
+    <input style="margin-left: 50px;" asp-for="RestaurantName"/>
+    <br>
+    <br>
+    <span asp-validation-for="Review"></span>
+    <br>
+    <label asp-for="Review"></label>
+    <textarea rows="4" cols="60" asp-for="Review"/></textarea>
+    <br>
+    <br>
+    <span asp-validation-for="Date"></span>
+    <br>
+    <label asp-for="Date"></label>
+    <input style="margin-left: 50px;" type="date" asp-for="Date"/>
+    <br>
+    <br>
+    <span asp-validation-for="Stars"></span>
+    <br>
+    <label asp-for="Stars"></label>
+        <select  asp-for="Stars"/>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    <br>
+    <br>
+    <button style="margin-left: 115px;" type="submit">Submit</button>
+</form>

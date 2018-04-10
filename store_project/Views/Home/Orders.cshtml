@@ -1,0 +1,93 @@
+<p><a href="/">Dashboard</a>&emsp;<a href="Products">Products</a>&emsp;<a href="Orders">Orders</a>&emsp;<a href="Customers">Customers</a>&emsp;<a href="Settings">Settings</a></p>
+
+<h2>Add a new order</h2>
+
+<form action="POrder" method="post">
+    <h4>Customer:</h4>
+
+    <label for="Customer"></label>
+        <select name="CustomerID">
+@{
+    foreach(var x in @ViewBag.Customers)
+    {
+            
+            <option value="@x.CustomerID">@x.Name</option>   
+            
+    }
+}
+        </select>
+        
+    <br>
+    <h4>Order:</h4>
+    <label for="Order"></label>
+        <select name="Quantity">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <select name="ProductID">
+@{
+    foreach(var o in @ViewBag.Products)
+    { 
+        
+
+        <option value="@o.ProductID">@o.Name</option>
+
+        
+    }
+}  
+        </select>
+        <br>
+        <br>
+
+    <button type="submit">Order</button>
+</form>
+<br>
+<br>
+
+<table>
+    <thead>
+        <tr>
+            <th>Customer Name</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+<!-- @{
+    foreach(var m in @ViewBag.Orders)
+    {
+
+        <tr>
+            <p><td>@m.Name</td></p>
+    @{
+        foreach(var y in @m.Order)
+        {
+            {
+                         
+            <p><td>@y.Product.Name</td></p>
+            <p><td>@y.Quantity</td></p>
+            <p><td>@y.createdat</td></p>
+
+            }
+    }
+    }
+            
+
+        </tr>
+    }
+} -->
+@{
+    foreach( var t in @ViewBag.Orders1)
+    {
+        <tr>
+            <td>@t.Customer.Name</td>
+            <td>@t.Product.Name</td>
+            <td>@t.Quantity</td>
+            <td>@t.createdat</td>
+        </tr>
+    }
+}
+    </tbody>
+</table>

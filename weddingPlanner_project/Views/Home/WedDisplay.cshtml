@@ -1,0 +1,14 @@
+@{
+    foreach(var x in @ViewBag.info){
+
+
+<h1>@x.Groom and @x.Bride Wedding</h1>
+<p style="margin-left: 450px;"><a href="/Dash">Dash</a>&emsp;<a href="/logout">Logout</a></p>
+<h3>Date: @x.Date</h3>
+<h3>Guests:</h3>
+
+        foreach(var p in @x.Attending){
+        <p>@p.User.FirstName @p.User.LastName</p>
+        }
+    }
+}

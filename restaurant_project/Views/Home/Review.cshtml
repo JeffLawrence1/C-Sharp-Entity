@@ -1,0 +1,9 @@
+@{
+    foreach(var review in ViewBag.reviews)
+    {
+        <h3>Review for:  @review.RestaurantName &emsp; Stars: @review.Stars</h3>
+        <h2>Reviewer:  @review.Name &emsp; @Convert.ToString(string.Format("{0:h:mm tt MMMM d yyyy}", @review.Date))</h2>
+        <p>@review.Review</p>
+        <p>__________________________________________________________________________________</p>
+    }
+}
